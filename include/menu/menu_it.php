@@ -128,7 +128,33 @@ include('../include/function_php_encryption.php');
                             <a href="../users/" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>Users Management</p>
+                                <i class="fas fa-angle-left right"></i>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../users/" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Active List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../users/del_list" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Deleted List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../users/users_log" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Logs</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">

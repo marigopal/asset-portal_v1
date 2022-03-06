@@ -1,6 +1,5 @@
 <?php
 include('../include/menu/menu.php');
-include ("modal/modals.php");
 ?>
 <div class="content-wrapper">
     <section class="content-header">
@@ -12,6 +11,7 @@ include ("modal/modals.php");
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="../home/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="../users/">Users</a></li>
                         <li class="breadcrumb-item active">Import Users</li>
                     </ol>
                 </div>
@@ -22,16 +22,22 @@ include ("modal/modals.php");
         <div class="container-fluid">
             <div class="card card-primary">
                 <div class="card-body">
-                    <form class="form-horizontal" action="_dbPage/import_user" method="post"
+                    <form class="form-horizontal" action="db/import_user" method="post"
                           name="frmCSVImport" id="frmCSVImport" enctype="multipart/form-data">
-
                         <div class="row">
                             <div class="col-12 col-sm-4">
                                 <div class="form-group">
                                     <label>Upload CSV </label>
                                     <input type="file" name="file"
                                            id="file" accept=".csv">
-                                    <button type="submit" id="submit" name="import" class="btn btn-primary import_button" hidden="">Import</button>
+                                    <button type="submit" id="submit" name="import" class="btn btn-primary import_button">Import</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <div class="form-group">
+                                    <a href="import.csv" >Download Sample CSV</a>
                                 </div>
                             </div>
                         </div>
@@ -50,27 +56,29 @@ include ("modal/modals.php");
                             <a href="#" data-toggle="modal" data-target="#users_modal_box"><img src="../img/add_row.png" alt="Smiley face" height="25" width="25" data-toggle="modal" data-target="#new_users" title="New"></a>
                         </div>
                         <div class="card-body">
-                            <table id="users_list" class="table table-bordered table-striped">
+                            <table id="tbl_importusers" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th hidden="">ID</th>
-                                        <th>ID</th>
-                                        <th>Name</th>
+                                        <th hidden="">UID</th>
+                                        <th>Emp Id</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>User Name</th>
                                         <th>Status</th>
 
                                     </tr>
                                 </thead>
-                                <tbody id="_index_users_list"></tbody>
+                                <tbody id="importusers_tbody"></tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </section>
 </div>
 <?php include('../include/footer.php'); ?>
 <?php include('../include/script.php'); ?>
-<script src="jquery/import_user.js" type="text/javascript"></script>
+<script src="js/import_user.js" type="text/javascript"></script>

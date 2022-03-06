@@ -7,10 +7,7 @@ $.ajax({
     data: {filter: _filter},
     cache: false,
     success: function (data) {
-        $('#_index_users_list').html(data);
-        generateDTable('users_list');
+        $('#importusers_tbody').html(data);
+        generateDTable('tbl_importusers');
     }
-});
-$("#file").change(function(){
-    $(".import_button").click();
 });

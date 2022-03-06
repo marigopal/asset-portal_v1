@@ -14,66 +14,6 @@ $.ajax({
         generateDTable('users_table');
     }
 });
-$("#save_btn").click(function ()
-{
-    var isNew = false;
-    var user_id = $("#user_id").val();
-    var emp_id = $("#emp_id").val();
-    var fname = $("#fname").val();
-    var lname = $("#lname").val();
-    var username = $("#username").val();
-    var password = $("#password").val();
-    var usr_access = $("#usr_access").val();
-    if (user_id == '')
-    {
-        isNew = true;
-    }
-//    if (emp_id == '')
-//    {
-//        inputbox_error_notification('emp_id', 'Employee ID Should be enter');
-//
-//        $("#emp_id").focus();
-//    } else 
-        if (fname == '')
-    {
-        inputbox_error_notification('fname', 'First Name Should be enter');
-        $("#fname").focus();
-    } else if (lname == '')
-    {
-        inputbox_error_notification('lname', 'Last Name Should be enter');
-        $("#lname").focus();
-    } else if (username == '')
-    {
-        inputbox_error_notification('username', 'Username Should be enter');
-        $("#username").focus();
-    } else {
-        $.ajax
-                ({
-                    type: "POST",
-                    url: "db/manage_user.php",
-                    data: 'isNew=' + isNew.toString() + '&user_id=' + user_id + '&emp_id=' + emp_id + '&fname=' + fname + '&lname=' + lname + '&username=' + username + '&password=' + password + '&usr_access=' + usr_access,
-                    datatype: "html",
-                    success: function (result)
-                    {
-                        if (result.trim() == 1)
-                        {
-                            if (isNew == true)
-                            {
-                                modal_hide('users_modal_box');
-                                toastr_success_selfreload('Use Added Successfully..!');
-                            } else
-                            {
-                                modal_hide('users_modal_box');
-                                toastr_success_selfreload('User Updated Successfully..!');
-                            }
-                        } else
-                        {
-                            toastr_error();
-                        }
-                    }
-                });
-    }
-});
 function update_user(id)
 {
     $.ajax
@@ -104,7 +44,6 @@ function update_user(id)
                                 $("#lname").val(lastname);
                                 $("#username").val(username);
                                 $("#password").val(password);
-//                                $("#usr_access").val(user_access);
                                 load_usraccess('usr_access',user_access);
                                 
                             }
@@ -115,11 +54,11 @@ function update_user(id)
 }
 function delete_user(id)
 {
-    $("#deleteuser_uid").val(id);
+    $("#delete_uid").val(id);
 }
-$("#delete_user").click(function ()
+$("#delete_button").click(function ()
 {
-    var uid = $("#deleteuser_uid").val();
+    var uid = $("#delete_uid").val();
     $.ajax
             ({
                 type: "POST",
@@ -130,7 +69,7 @@ $("#delete_user").click(function ()
                 {
                     if (result == 1)
                     {
-                        modal_hide('deleteuser_modal_box');
+                        modal_hide('delete_modal_box');
                         toastr_success('Deleted Successfully..!', '');
                     } else
                     {

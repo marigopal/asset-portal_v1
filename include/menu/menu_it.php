@@ -2,6 +2,7 @@
 include '../include/header.php';
 include('../include/stylesheet.php');
 include('../include/user_info.php');
+include('../include/global_mdl.php');
 include('../include/function_php_encryption.php');
 ?>
 </head>

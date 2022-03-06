@@ -2,14 +2,14 @@
 
 include('../../include/lib_page.php');
 
-$insert_users = "INSERT INTO `tbl_users`(`emp_id`, `firstname`, `lastname`, `username`, `password`) SELECT `emp_id`, `firstname`, `lastname`, `username`, `password` FROM `tbl_users_import`";
+$insert_users = "INSERT INTO `tbl_users`(`users_uid`,`emp_id`, `firstname`, `lastname`, `username`, `password`) SELECT `users_uid`,`emp_id`, `firstname`, `lastname`, `username`, `password` FROM `tbl_import_users` where status = '0'";
 $insertuser_result = mysqli_query($con, $insert_users);
-$truncate_table = "TRUNCATE TABLE  tbl_users_import";
-$truncate_query = mysqli_query($con, $truncate_table);
+$del_imported = "DELETE FROM `tbl_import_users` WHERE `status` = '0'";
+$del_query = mysqli_query($con, $del_imported);
 if (!empty($insertuser_result)) {
                 echo "<script>
-alert('Inserted Successfully');
-window.location.href='../index';
+alert('Please check status in Import Page..!');
+window.location.href='../import_user';
 </script>";
             } else {
                 echo "<script>

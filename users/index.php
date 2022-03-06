@@ -1,6 +1,5 @@
 <?php
 include('../include/menu/menu.php');
-include ("mdlbx/users_modals.php");
 ?>
 <div class="content-wrapper">
     <section class="content-header">

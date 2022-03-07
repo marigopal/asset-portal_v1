@@ -72,7 +72,7 @@
                         <div class="col-12 col-sm-6">
                             <div class="form-group">
                                 <label>User Access<span class="required text-red">*</span></label>
-                                 <select class="form-control select2bs4" id="usr_access" name="usr_access"></select>
+                                <select class="form-control select2bs4" id="usr_access" name="usr_access"></select>
                             </div>
                         </div>
                     </div>

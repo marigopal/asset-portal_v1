@@ -7,7 +7,6 @@ $(document).ready(function () {
         load_data(_id);
     }
 });
-
 function load_data(id)
 {
     $.ajax({
@@ -49,9 +48,7 @@ function load_data(id)
                         $("#address1").val(_address1);
                         $("#address2").val(_address2);
                         $("#city").val(_city);
-                        load_countries('country',_country);
-                        
-
+                        load_countries('country', _country);
                     }
                 }
             }
@@ -79,7 +76,7 @@ $("#updateuserprofile_button").click(function () {
                 ({
                     type: "POST",
                     url: "db/manage_userprofile.php",
-                    data: 'isNew=' + isNew.toString() + '&user_id=' + user_id + '&first_name=' + first_name + '&last_name=' + last_name + '&emp_id=' + emp_id + '&mobile=' + mobile + '&email=' + email + '&address1=' + address1 + '&address2=' + address2 + '&city=' + city+ '&country=' + country,
+                    data: 'isNew=' + isNew.toString() + '&user_id=' + user_id + '&first_name=' + first_name + '&last_name=' + last_name + '&emp_id=' + emp_id + '&mobile=' + mobile + '&email=' + email + '&address1=' + address1 + '&address2=' + address2 + '&city=' + city + '&country=' + country,
                     datatype: "html",
                     success: function (result)
                     {

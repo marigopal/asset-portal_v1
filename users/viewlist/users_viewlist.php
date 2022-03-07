@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
             <td><?php echo $row['access_name']; ?></td>
             <td>
                 <a href="#" data-toggle="modal" data-target="#users_modal_box" onclick="update_user('<?= encrypt($row['users_uid']); ?>');"><i class="fas fa-edit"></i></a>
-                <a href="#" data-toggle="modal" data-target="#delete_modal_box" onclick="delete_user('<?= $row['users_uid']; ?>');"><i class="fas fa-trash-alt"></i></a>
+                <a href="#" data-toggle="modal" data-target="#delete_modal_box" onclick="delete_row('<?= $row['users_uid']; ?>');"><i class="fas fa-trash-alt"></i></a>
             </td>ref="#" data-toggle="modal" data-target="#modal-danger"><i class="fas fa-trash-alt"></i></a>
         </td>
         </tr>

@@ -104,7 +104,7 @@ include('../include/function_php_encryption.php');
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-server"></i>
+                                <i class="nav-icon fas fa-id-card"></i>
                                 <p>License Management
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
@@ -125,10 +125,11 @@ include('../include/function_php_encryption.php');
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../users/" class="nav-link">
+                           <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
-                                <p>Users Management</p>
-                                <i class="fas fa-angle-left right"></i>
+                                <p>Users Management
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
@@ -171,10 +172,28 @@ include('../include/function_php_encryption.php');
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../models/" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Model</p>
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-file-archive"></i>
+                                        <p>Models
+                                            <i class="fas fa-angle-left right"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="../models/" class="nav-link">
+                                                <i class="fas fa fa-arrow-circle-right"></i>
+                                                <p>Model Name</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="../model_no/" class="nav-link">
+                                                <i class="fas fa fa-arrow-circle-right"></i>
+                                                <p>Model No</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a href="../category/" class="nav-link">

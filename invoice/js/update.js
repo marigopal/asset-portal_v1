@@ -57,13 +57,13 @@ $("#saveinvoicebutton").click(function(){
     var invdate = $("#invdate").val();
     var invno = $("#invno").val();
     var img_name = $("#img_name").val();
-    add_disabled('saveinvoicebutton');
     if (invoice_uid == '')
     {
         isNew = true;
     }
     else
     {
+      add_disabled('saveinvoicebutton');
         $.ajax
                 ({
                     type: "POST",

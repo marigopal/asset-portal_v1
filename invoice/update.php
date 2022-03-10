@@ -30,8 +30,7 @@ include('../include/menu/menu.php');
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label>Purchase order Date</label>
-                                <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask id="pod">
-
+                                <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd-mm-yyyy" data-mask id="pod">
                             </div>
                         </div>
                     </div>
@@ -43,7 +42,6 @@ include('../include/menu/menu.php');
                             </div>
                         </div>
                     </div>
-
                     <div class="row d-flex justify-content-center">
                         <div class="col-12 col-md-6">
                             <div class="form-group">
@@ -58,7 +56,7 @@ include('../include/menu/menu.php');
                                 <label>Supplier
                                     <span class="required text-red"><img src="../img/add_row.png" alt="Smiley face" height="25" width="25" data-toggle="modal" data-target="#new_users" title="New"></span>
                                 </label>
-                                <select class="form-control" id="supplier" name="supplier"></select>                            
+                                <select class="form-control" id="supplier" name="supplier"></select>
                             </div>
                         </div>
                     </div>
@@ -66,8 +64,7 @@ include('../include/menu/menu.php');
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label>Invoice Date</label>
-
-                                <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask id="invdate">
+                                <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd-mm-yyyy" data-mask id="invdate">
                             </div>
                         </div>
                     </div>
@@ -79,9 +76,6 @@ include('../include/menu/menu.php');
                             </div>
                         </div>
                     </div>
-
-
-
                     <div class="row d-flex justify-content-center">
                         <div class="col-12 col-md-6">
                             <div class="form-group">
@@ -95,7 +89,6 @@ include('../include/menu/menu.php');
                     <div class="row d-flex justify-content-center">
                         <div class="col-12 col-md-6">
                             <div class="form-group">
-
                                 <embed src="" width="350px" height="500px" id="receipt_display"/>
                             </div>
                         </div>

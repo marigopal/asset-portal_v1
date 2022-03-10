@@ -9,7 +9,7 @@ include('../include/menu/menu.php');
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group ">
-                                Are you want to add more items in same invoice? 
+                                Are you want to add more items in same invoice?
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -99,15 +99,6 @@ include('../include/menu/menu.php');
                                             <div class="bs-stepper-content">
                                                 <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
                                                     <div class="row">
-                                                        <div class="col-12 col-sm-4 d-none">
-                                                            <div class="form-group">
-                                                                <label>invoice uid
-                                                                </label>
-
-                                                                <input type="text" class="form-control" id="inv_uid" name="inv_uid" readonly/>
-
-                                                            </div>
-                                                        </div>
                                                         <div class="col-12 col-sm-4">
                                                             <div class="form-group">
                                                                 <label>Asset Category
@@ -116,16 +107,9 @@ include('../include/menu/menu.php');
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12 col-sm-4 d-none">
-                                                            <div class="form-group">
-                                                                <label>Asset Category Name
-                                                                </label>
-                                                                <input type="text" class="form-control" id="asset_category_name" name="asset_category_name" readonly/>
-                                                            </div>
-                                                        </div>
                                                         <div class="col-12 col-sm-4">
                                                             <div class="form-group">
-                                                                <label>Warranty (Months)</label>
+                                                                <label>Warranty/Expiration ( in Months)</label>
                                                                 <input type="number" class="form-control" id="warranty" name="warranty">
                                                             </div>
                                                         </div>
@@ -142,8 +126,8 @@ include('../include/menu/menu.php');
                                                         <div class="col-12 col-sm-4">
                                                             <div class="form-group">
                                                                 <label>Purchase Order Date</label>
-                                                                <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask id="pod" name="pod" >
-                                                               
+                                                                <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd-mm-yyyy" data-mask id="pod" name="pod" >
+
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-sm-4">
@@ -170,9 +154,9 @@ include('../include/menu/menu.php');
                                                         <div class="col-12 col-sm-4">
                                                             <div class="form-group">
                                                                 <label>Invoice  Date</label>
-                                                                
-                                                                <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" data-mask id="invdate" name="invdate" required="">
-                                                               
+
+                                                                <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd-mm-yyyy" data-mask id="invdate" name="invdate" required="">
+
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-sm-4">
@@ -194,6 +178,13 @@ include('../include/menu/menu.php');
                                                             <div class="form-group">
                                                                 <label>Model</label>
                                                                 <select class="form-control select2bs4" id="asset_model" name="asset_model" >
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-4">
+                                                            <div class="form-group">
+                                                                <label>Model No</label>
+                                                                <select class="form-control select2bs4" id="asset_modelno" name="asset_modelno" >
                                                                 </select>
                                                             </div>
                                                         </div>

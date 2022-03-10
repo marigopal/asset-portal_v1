@@ -1,11 +1,11 @@
 <?php
 include '../../include/lib_page.php';
 $sno = 0;
-if (!empty($_POST['filter'])) 
+if (!empty($_POST['filter']))
 {
     $filter = decrypt($_POST['filter']);
     $and = "and a.invoice_uid = '$filter'";
-    
+
 } else {
     $and="";
 }
@@ -15,13 +15,11 @@ $result = $con->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_array(MYSQLI_BOTH)) {
         ?>
-        <tr data-widget="expandable-table" aria-expanded="false" class="thead-dark" style="background: #91bbff;">
+        <tr data-widget="expandable-table" aria-expanded="false" class="thead-dark">
             <td><?= ++$sno; ?></td>
             <td hidden=""><?php echo $row['invoice_uid']; ?></td>
             <td><?php echo $row['invoice_date']; ?></td>
-            <td>
-                <a href="../component/index?id=<?php echo $row['invoice_no']; ?>" ><?php echo $row['invoice_no']; ?></a>
-            </td>
+            <td><?php echo $row['invoice_no']; ?></td>
             <td><?php echo $row['supplier_name']; ?></td>
             <td><?php echo $row['purchase_date']; ?></td>
             <td><?php echo $row['purchase_no']; ?></td>
@@ -38,7 +36,7 @@ if ($result->num_rows > 0) {
                 <a href="../invoice/update?id=<?php echo $invoice_uid_encrypt; ?>" ><i class="fas fa-edit"></i></a>
             </td>
         </tr>
-        <tr class="expandable-body d-none">
+        <!-- <tr class="expandable-body d-none">
             <td style="width:auto;" colspan="7"><p>
                 <table class="table table-bordered table-striped pl-0">
                     <thead>
@@ -61,7 +59,7 @@ if ($result->num_rows > 0) {
                         $subresult = $con->query($sub_sql);
                         if ($subresult->num_rows > 0) {
                             while ($subrow = $subresult->fetch_array(MYSQLI_BOTH)) {
-                                ?>	
+                                ?>
                                 <tr  style="background:white;">
                                     <td style="width:auto;" hidden=""><p><?php echo $subrow['component_uid']; ?></p></td>
                                     <td style="width:auto;"><p><?php echo ++$sno1; ?></p></td>
@@ -71,17 +69,17 @@ if ($result->num_rows > 0) {
                                     <td style="width:auto;"><p><?php echo $subrow['models_name']; ?></p></td>
                                     <td style="width:auto;"><p><?php echo $subrow['warranty']; ?></p></td>
                                     <td style="width:auto;"><p><?php echo $subrow['serialno']; ?></p></td>
-                                </tr>   
+                                </tr>
                                 <?php
                             }
                         }
-                        ?> 
+                        ?>
                     </tbody>
                 </table>
             </p></td>
-        </tr>   
+        </tr>    -->
         <?php
     }
 }
 mysqli_close($con);
-?> 
+?>

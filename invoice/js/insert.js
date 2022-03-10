@@ -5,7 +5,7 @@ $(document).ready(function () {
     load_assetcategory('asset_category');
     load_manufacturer('manufacturer');
     load_model('asset_model');
-    load_modelno('model_no');
+
     $(document).on('click', '.add_component', function () {
         var html = '';
         html += '<tr>';
@@ -20,7 +20,6 @@ $(document).ready(function () {
     $('#insert_form').on('submit', function (event) {
         event.preventDefault();
         var error = '';
-
         var form_data = $(this).serialize();
         if (error == '')
         {
@@ -47,12 +46,6 @@ $(document).ready(function () {
         }
     });
 
-});
-$('#pod').datetimepicker({
-    format: 'L'
-});
-$('#invdate').datetimepicker({
-    format: 'L'
 });
 $(window).on('load', function () {
     $('#confirm_model').modal('show');
@@ -92,7 +85,7 @@ function load_invoicelist(ddlName, selectedvalue)
                 if (selectedvalue != null) {
                     $('#' + ddlName).val(selectedvalue);
                 }
-            } 
+            }
         },
         error: function (err) {
             console.log(err);
@@ -110,5 +103,5 @@ $("#save_confirm_button").click(function(){
     remove_required('invdate');
     remove_required('invno');
     $('#confirm_model').modal('toggle');
-     
+
 });

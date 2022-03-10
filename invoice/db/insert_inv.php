@@ -30,6 +30,7 @@ if ($inv_uid == '') {
     $inv_query = "INSERT INTO `tbl_invoice` (`invoice_uid`, `invoice_date`, `invoice_no`, `supplier`, "
             . "`purchase_date`, `purchase_no`, `purchase_cost`, `inv_filename`) VALUES ('$inv_uid','$invdate','$invno','$supplier',"
             . "'$pod','$pon','$poc','$img_name')";
+            // echo $inv_query; exit();
     $statement = $connect->prepare($inv_query);
 
     $statement->execute();

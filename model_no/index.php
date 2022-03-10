@@ -24,6 +24,7 @@ include('../include/menu/menu.php');
                     <div class="card">
                         <div class="card-header">
                             <a href="manage_modelno_form"><img src="../img/add_row.png" alt="Smiley face" height="25" width="25" data-toggle="modal" data-target="#new_users" title="New"></a>
+                            <a href="modelsno_log"><img src="../img/logs.png" alt="Smiley face" height="25" width="25" title="Logs"></a>
                         </div>
                         <div class="card-body">
                             <table id="modelno_list" class="table table-bordered table-striped">

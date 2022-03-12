@@ -39,6 +39,7 @@ function load_data(_id) {
                         $("#img_name").val(inv_filename);
                         if (inv_filename != '') {
                         $("#receipt_display").attr("src", "../image_location/" + inv_filename);
+                        $("#download_incoicebtn").attr("href", "../image_location/" + inv_filename);
                         removehidden_class('receipt_display');
                     }
                     }

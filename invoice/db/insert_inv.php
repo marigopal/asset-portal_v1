@@ -4,8 +4,7 @@
 include('../../include/lib_page.php');
 $inv_uid = $_POST['inv_uid'];
 $asset_category = $_POST['asset_category'];
-$asset_category_name = $_POST['asset_category_name'];
-$asset_category_name = strtoupper(substr($asset_category_name, 0, 3));
+$asset_category_name = $_POST['asset_prefix'];
 $warranty = $_POST['warranty'];
 $location = $_POST['location'];
 $pod = $_POST['pod'];
@@ -22,6 +21,7 @@ $invdate = date("Y-m-d", strtotime($invdate));
 $invno = $_POST['invno'];
 $manufacturer = $_POST['manufacturer'];
 $asset_model = $_POST['asset_model'];
+$asset_modelno = $_POST['asset_modelno'];
 $img_name = $_POST['img_name'];
 
 if ($inv_uid == '') {
@@ -54,10 +54,10 @@ if (isset($_POST["serial"])) {
         $component_uid = "COMP_" . $comp_uid;
         $serial = $_POST["serial"][$count];
         $remarks = $_POST["remarks"][$count];
-        $query = "INSERT INTO `tbl_component`(`component_uid`, `inv_uid`, `asset_tag`, `assettag_number`, `warranty`, `category`, `manufacturer`, `model`, "
+        $query = "INSERT INTO `tbl_component`(`component_uid`, `inv_uid`, `asset_tag`, `assettag_number`, `warranty`, `category`, `manufacturer`, `model`, `model_no`, `location`, `status_id`, "
                 . "`serialno`, `remarks`) VALUES ('$component_uid','$inv_uid',"
                 . "'$asset_tag','$new_assettag_number','$warranty','$asset_category','$manufacturer',"
-                . "'$asset_model','$serial', '$remarks')";
+                . "'$asset_model','$asset_modelno','$location','STS_6226dd403f9ac','$serial', '$remarks')";
 
         $statement = $connect->prepare($query);
         $statement->execute();

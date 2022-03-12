@@ -92,6 +92,36 @@ function load_invoicelist(ddlName, selectedvalue)
         }
     });
 }
+function load_modelno(ddlName, selectedvalue)
+{
+    var asset_model= $("#asset_model").val();
+    var asset_model_text = $("#asset_model option:selected").text();
+    $.ajax({
+        type: "POST",
+        url: "db/load_modelno.php",
+        data: {asset_model: asset_model},
+        success: function (_result)
+        {
+            var result = JSON.parse(_result.replace('\n', ''));
+            $('#' + ddlName).empty();
+            var select_li_txt = "<option value='0'>Select</option>";
+            $('#' + ddlName).append(select_li_txt);
+            if (result != '')
+            {
+                $.each(result, function (i) {
+                    var li_txt = "<option value='" + result[i].modelno_uid + "'>" + asset_model_text + " " + result[i].model_number + "</option>";
+                    $('#' + ddlName).append(li_txt);
+                });
+                if (selectedvalue != null) {
+                    $('#' + ddlName).val(selectedvalue);
+                }
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
 
 $("#save_confirm_button").click(function(){
     var invoice_select = $("#invoice_select").val();
@@ -105,3 +135,31 @@ $("#save_confirm_button").click(function(){
     $('#confirm_model').modal('toggle');
 
 });
+
+function load_assetprefix() {
+  var asset_category = $("#asset_category").val();
+    $.ajax({
+        url: "db/get_assetprefix.php",
+        type: "POST",
+        data: {id: asset_category},
+        dataType: 'json',
+        success: function (result)
+        {
+            var len = result.length;
+            if (len != 0)
+            {
+                for (var i = 0; i < len; i++)
+                {
+                    var _category_prefix = result[i]['category_prefix'];
+
+                    if (len > 0)
+                    {
+
+                        $("#asset_prefix").val(_category_prefix);
+
+                    }
+                }
+            }
+        }
+    });
+}

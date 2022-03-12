@@ -99,12 +99,28 @@ include('../include/menu/menu.php');
                                             <div class="bs-stepper-content">
                                                 <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
                                                     <div class="row">
+                                                      <div class="col-12 col-sm-4 d-none">
+                                                          <div class="form-group">
+                                                              <label>Unique ID
+                                                              </label>
+                                                              <input class="form-control" id="inv_uid" name="inv_uid" />
+
+                                                          </div>
+                                                      </div>
                                                         <div class="col-12 col-sm-4">
                                                             <div class="form-group">
                                                                 <label>Asset Category
                                                                 </label>
-                                                                <select class="form-control select2bs4" id="asset_category" name="asset_category">
+                                                                <select class="form-control select2bs4" id="asset_category" name="asset_category" onchange="load_assetprefix()">
                                                                 </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-4 d-none">
+                                                            <div class="form-group">
+                                                                <label>Category Prefix
+                                                                </label>
+                                                                <input class="form-control" id="asset_prefix" name="asset_prefix" />
+
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-sm-4">
@@ -177,7 +193,7 @@ include('../include/menu/menu.php');
                                                         <div class="col-12 col-sm-4">
                                                             <div class="form-group">
                                                                 <label>Model</label>
-                                                                <select class="form-control select2bs4" id="asset_model" name="asset_model" >
+                                                                <select class="form-control select2bs4" id="asset_model" name="asset_model" onchange="load_modelno('asset_modelno')" >
                                                                 </select>
                                                             </div>
                                                         </div>

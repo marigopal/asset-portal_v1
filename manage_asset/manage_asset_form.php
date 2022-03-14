@@ -26,10 +26,10 @@ include('../include/menu/menu.php');
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label>Catagory</label>
-                                <select class="form-control" id="category" name="category" readonly=""></select>   
+                                <select class="form-control" id="category" name="category" readonly="" onchange="load_assetprefix()"></select>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6" hidden="">
+                        <div class="col-12 col-md-6 d-none">
                             <div class="form-group">
                                 <label>Asset Category Name
                                 </label>
@@ -66,7 +66,7 @@ include('../include/menu/menu.php');
                                 <label>Manufacturer
                                     <span class="required text-red"><img src="../img/add_row.png" alt="Smiley face" height="25" width="25" data-toggle="modal" data-target="#new_users" title="New"></span>
                                 </label>
-                                <select class="form-control select2bs4" id="manufacturer" name="manufacturer"></select>                            
+                                <select class="form-control select2bs4" id="manufacturer" name="manufacturer"></select>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,16 @@ include('../include/menu/menu.php');
                                 <label>Model
                                     <span class="required text-red"><img src="../img/add_row.png" alt="Smiley face" height="25" width="25" data-toggle="modal" data-target="#new_users" title="New"></span>
                                 </label>
-                                <select class="form-control select2bs4" id="model" name="model"></select>                            
+                                <select class="form-control select2bs4" id="model" name="model" onchange="load_modelno('asset_modelno',this.value)"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label>Model No</label>
+                                <select class="form-control select2bs4" id="asset_modelno" name="asset_modelno" >
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -110,7 +119,7 @@ include('../include/menu/menu.php');
                     <div class="row d-flex justify-content-center">
                         <div class="col-12 col-md-6">
                             <div class="form-group">
-                                <img src="" alt="" width="200" height="200" id="receipt_display" class="d-none"> 
+                                <img src="" alt="" width="200" height="200" id="receipt_display" class="d-none">
                             </div>
                         </div>
                     </div>

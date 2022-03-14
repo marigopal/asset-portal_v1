@@ -31,6 +31,7 @@ function load_data(_id) {
                     var from_category_ = result[i]['category'];
                     var manufacturer_ = result[i]['manufacturer'];
                     var model_ = result[i]['model'];
+                    var modelno_ = result[i]['model_no'];
                     var serialno = result[i]['serialno'];
                     var remarks = result[i]['remarks'];
                     if (len > 0)
@@ -42,8 +43,10 @@ function load_data(_id) {
                         load_assetcategory('category', from_category_);
                         $("#manufacturer").val(manufacturer_);
                         load_manufacturer('manufacturer', manufacturer_);
-                        $("#model").val(model_);
                         load_model('model', model_);
+                        if(model_ != ''){
+                        load_modelno('asset_modelno', model_, modelno_);
+                    }
                         $("#serial").val(serialno);
                         $("#remarks").val(remarks);
                     }
@@ -61,6 +64,7 @@ $("#savecomponent_btn").click(function () {
     var warranty = $("#warranty").val();
     var manufacturer = $("#manufacturer").val();
     var model = $("#model").val();
+    var asset_modelno = $("#asset_modelno").val();
     var serial = $("#serial").val();
     var remarks = $("#remarks").val();
     add_disabled('savecomponent_btn');
@@ -72,7 +76,7 @@ $("#savecomponent_btn").click(function () {
             ({
                 type: "POST",
                 url: "db/db_manage_asset.php",
-                data: 'isNew=' + isNew.toString() + '&comp_uid=' + comp_uid + '&category=' + category + '&asset_category_name=' + asset_category_name + '&asset_tag=' + asset_tag + '&warranty=' + warranty + '&manufacturer=' + manufacturer + '&model=' + model + '&serial=' + serial + '&remarks=' + remarks,
+                data: 'isNew=' + isNew.toString() + '&comp_uid=' + comp_uid + '&category=' + category + '&asset_category_name=' + asset_category_name + '&asset_tag=' + asset_tag + '&warranty=' + warranty + '&manufacturer=' + manufacturer + '&model=' + model + '&asset_modelno=' + asset_modelno + '&serial=' + serial + '&remarks=' + remarks,
                 datatype: "html",
                 success: function (result)
                 {
@@ -92,8 +96,61 @@ $("#savecomponent_btn").click(function () {
                 }
             });
 });
-$("#category").change(function () {
-    var assetcategory_text = $("#category option:selected").text();
-    $("#asset_category_name").val(assetcategory_text);
 
-});
+function load_modelno(ddlName, model, selectedvalue)
+{
+
+    var asset_model_text = $("#model option:selected").text();
+    $.ajax({
+        type: "POST",
+        url: "db/load_modelno.php",
+        data: {asset_model: model},
+        success: function (_result)
+        {
+            var result = JSON.parse(_result.replace('\n', ''));
+            $('#' + ddlName).empty();
+            var select_li_txt = "<option value='0'>Select</option>";
+            $('#' + ddlName).append(select_li_txt);
+            if (result != '')
+            {
+                $.each(result, function (i) {
+                    var li_txt = "<option value='" + result[i].modelno_uid + "'>" + asset_model_text + " " + result[i].model_number + "</option>";
+                    $('#' + ddlName).append(li_txt);
+                });
+                if (selectedvalue != null) {
+                    $('#' + ddlName).val(selectedvalue);
+                }
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+    }
+    function load_assetprefix() {
+      var asset_category = $("#category").val();
+        $.ajax({
+            url: "db/get_assetprefix.php",
+            type: "POST",
+            data: {id: asset_category},
+            dataType: 'json',
+            success: function (result)
+            {
+                var len = result.length;
+                if (len != 0)
+                {
+                    for (var i = 0; i < len; i++)
+                    {
+                        var _category_prefix = result[i]['category_prefix'];
+
+                        if (len > 0)
+                        {
+
+                            $("#asset_category_name").val(_category_prefix);
+
+                        }
+                    }
+                }
+            }
+        });
+    }

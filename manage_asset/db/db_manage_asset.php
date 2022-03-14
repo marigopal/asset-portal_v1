@@ -4,11 +4,11 @@ include('../../include/lib_page.php');
 $isNew = $_POST['isNew'];
 $comp_uid = decrypt($_POST['comp_uid']);
 $category = $_POST['category'];
-$asset_category_name = $_POST['asset_category_name'];
-$asset_category_name_ = strtoupper(substr($asset_category_name, 0, 3));
+$asset_category_name = $_POST['asset_category_name']."-";
 $warranty = $_POST['warranty'];
 $manufacturer = $_POST['manufacturer'];
 $model = $_POST['model'];
+$asset_modelno = $_POST['asset_modelno'];
 $serial = $_POST['serial'];
 $remarks = $_POST['remarks'];
 
@@ -26,15 +26,15 @@ if ($isNew === 'true') {
         }
     }
     $new_assettag_number = $new_assettag_number + 1;
-    $asset_tag = invoice_num($new_assettag_number, 7, "$asset_category_name_");
-    
+    $asset_tag = invoice_num($new_assettag_number, 7, "$asset_category_name");
+
     $sql = "INSERT INTO `tbl_component`(`component_uid`, `asset_tag`, `assettag_number`, "
-            . "`warranty`, `category`, `manufacturer`, `model`, `serialno`, "
+            . "`warranty`, `category`, `manufacturer`, `model`, `model_no`,`serialno`, "
             . "`remarks`) VALUES ('$uid','$asset_tag','$new_assettag_number','$warranty','$category','$manufacturer',"
-            . "'$model','$serial','$remarks')";
+            . "'$model','$asset_modelno','$serial','$remarks')";
 } else if ($isNew === 'false') {
     $sql = "UPDATE `tbl_component` SET `warranty`='$warranty',`category`='$category',"
-            . "`manufacturer`='$manufacturer',`model`='$model',`serialno`='$serial',"
+            . "`manufacturer`='$manufacturer',`model`='$model',`model_no` = '$asset_modelno',`serialno`='$serial',"
             . "`remarks`='$remarks' WHERE `component_uid` = '$comp_uid'";
 }
 // echo $sql;exit();

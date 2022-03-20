@@ -103,7 +103,7 @@ $("#savemanufacturersbutton").click(function () {
                                  toastr_success('Manufacturer Added Successfully.', 'index');
                              } else
                              {
-                                 toastr_success('Manufacturer Updated Successfully.', '');
+                                 toastr_success('Manufacturer Updated Successfully.', 'index');
                              }
                          } else
                          {

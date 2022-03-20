@@ -103,7 +103,7 @@ $("#savesupplierbutton").click(function(){
                                  toastr_success('Supplier Added Successfully.', 'index');
                              } else
                              {
-                                 toastr_success('Supplier Updated Successfully.', '');
+                                 toastr_success('Supplier Updated Successfully.', 'index');
                              }
                          } else
                          {

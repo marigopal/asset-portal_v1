@@ -59,7 +59,7 @@ $("#savecompanybutton").click(function () {
                                 toastr_success('Company Added Successfully.', 'index');
                             } else
                             {
-                                toastr_success('Company Updated Successfully.', '');
+                                toastr_success('Company Updated Successfully.', 'index');
                             }
                         } else
                         {

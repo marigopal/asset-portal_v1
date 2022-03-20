@@ -3,6 +3,7 @@
 include('../../include/lib_page.php');
 $compo_uid = decrypt($_POST['compo_uid']);
 $user = $_POST['user'];
+
 if($user == '')
 {
     $user = 0;

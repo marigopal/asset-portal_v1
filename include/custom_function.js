@@ -229,3 +229,57 @@ function load_manufacturer(ddlName, selectedvalue) {
         }
     });
 }
+function load_compname(ddlName, selectedvalue) {
+    $.ajax({
+        type: "POST",
+        url: "../include/db/load_compname.php",
+        data: {},
+        success: function (_result)
+        {
+            var result = JSON.parse(_result.replace('\n', ''));
+            $('#' + ddlName).empty();
+            var select_li_txt = "<option value=''>Select</option>";
+            $('#' + ddlName).append(select_li_txt);
+            if (result != '')
+            {
+                $.each(result, function (i) {
+                    var li_txt = "<option value='" + result[i].component_uid + "'>" + result[i].asset_tag + "</option>";
+                    $('#' + ddlName).append(li_txt);
+                });
+                if (selectedvalue != null) {
+                    $('#' + ddlName).val(selectedvalue);
+                }
+            } 
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+function load_users(ddlName, selectedvalue) {
+    $.ajax({
+        type: "POST",
+        url: "../include/db/load_users.php",
+        data: {},
+        success: function (_result)
+        {
+            var result = JSON.parse(_result.replace('\n', ''));
+            $('#' + ddlName).empty();
+            var select_li_txt = "<option value=''>Select</option>";
+            $('#' + ddlName).append(select_li_txt);
+            if (result != '')
+            {
+                $.each(result, function (i) {
+                    var li_txt = "<option value='" + result[i].users_uid + "'>" + result[i].firstname + " ( " +  result[i].username + "-" + result[i].emp_id + ")"+"</option>";
+                    $('#' + ddlName).append(li_txt);
+                });
+                if (selectedvalue != null) {
+                    $('#' + ddlName).val(selectedvalue);
+                }
+            } 
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}

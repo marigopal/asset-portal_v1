@@ -115,7 +115,7 @@ $("#savelocationbutton").click(function () {
                                 toastr_success('Location Added Successfully.', 'index');
                             } else
                             {
-                                toastr_success('Location Updated Successfully.', '');
+                                toastr_success('Location Updated Successfully.', 'index');
                             }
                         } else
                         {

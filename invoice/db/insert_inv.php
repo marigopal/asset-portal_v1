@@ -21,7 +21,9 @@ $invdate = date("Y-m-d", strtotime($invdate));
 $invno = $_POST['invno'];
 $manufacturer = $_POST['manufacturer'];
 $asset_model = $_POST['asset_model'];
-$asset_modelno = $_POST['asset_modelno'];
+if(isset($_POST['_modelno'])){
+$asset_modelno = $_POST['_modelno'];
+}
 $img_name = $_POST['img_name'];
 
 if ($inv_uid == '') {

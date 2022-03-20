@@ -193,14 +193,14 @@ include('../include/menu/menu.php');
                                                         <div class="col-12 col-sm-4">
                                                             <div class="form-group">
                                                                 <label>Model</label>
-                                                                <select class="form-control select2bs4" id="asset_model" name="asset_model" onchange="load_modelno('asset_modelno')" >
+                                                                <select class="form-control select2bs4" id="asset_model" name="asset_model" onchange="load_modelno('_modelno')" >
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-sm-4">
                                                             <div class="form-group">
                                                                 <label>Model No</label>
-                                                                <select class="form-control select2bs4" id="asset_modelno" name="asset_modelno" >
+                                                                <select class="form-control select2bs4" id="_modelno" name="_modelno" >
                                                                 </select>
                                                             </div>
                                                         </div>

@@ -15,7 +15,7 @@ $(document).ready(function () {
     load_suppliers('invupd_supplier');
     load_assetcategory('asset_category_select');
     load_assetstatus('statuslist_select');
-    load_compname('asset_assign_list');
+    
 });
 function delete_row(id)
 {
@@ -43,10 +43,12 @@ $("#delete_button").click(function ()
                 }
             });
 });
-function assetassign(id)
+function assetassign(id,assign_method)
 {
     $("#compo_uid").val(id);
+    alert(assign_method);
     load_users('user');
+    load_compname('asset_assign_list');
 }
 $("#save_userbutton").click(function () {
     var compo_uid = $("#compo_uid").val();

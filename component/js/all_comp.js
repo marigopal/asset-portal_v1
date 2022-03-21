@@ -15,7 +15,7 @@ $(document).ready(function () {
     load_suppliers('invupd_supplier');
     load_assetcategory('asset_category_select');
     load_assetstatus('statuslist_select');
-    
+
 });
 function delete_row(id)
 {
@@ -43,36 +43,67 @@ $("#delete_button").click(function ()
                 }
             });
 });
-function assetassign(id,assign_method)
+function assetassign(id, assign_method)
 {
     $("#compo_uid").val(id);
-    alert(assign_method);
+    $("#assettype_frmdb").val(assign_method);
     load_users('user');
     load_compname('asset_assign_list');
+    if (assign_method == 1)
+    {
+        addhidden_class('assignasset_div');
+        removehidden_class('assignuser_div');
+    } else if (assign_method == 2)
+    {
+        removehidden_class('assignasset_div');
+        addhidden_class('assignuser_div');
+    } else if (assign_method == 3)
+    {
+        removehidden_class('assignuser_div');
+        removehidden_class('assignasset_div');
+    }
 }
 $("#save_userbutton").click(function () {
     var compo_uid = $("#compo_uid").val();
     var user = $("#user").val();
     var asset_assign_list = $("#asset_assign_list").val();
-    $.ajax
-            ({
-                type: "POST",
-                url: "db/assetassignedto_user.php",
-                data: '&compo_uid=' + compo_uid + '&user=' + user+ '&asset_assign_list=' + asset_assign_list,
-                datatype: "html",
-                success: function (result)
-                {
-                    if (result.trim() == 1)
-                    {
+    var assettype_frmdb = $("#assettype_frmdb").val();
+    if (assettype_frmdb == 1 && user == '')
+    {
+        inputbox_error_notification('user', '');
 
-                        modal_hide('asset_assign_user_modal');
-                        toastr_success('Asset Assigned to UserSuccessfully..!', '');
-                    } else
+    } else if (assettype_frmdb == 2 && asset_assign_list == '')
+    {
+        inputbox_error_notification('asset_assign_list', '');
+    } else if (assettype_frmdb == 3 && (user == '' || asset_assign_list == ''))
+    {
+        if (user == '') {
+            inputbox_error_notification('user', '');
+        }
+        if (asset_assign_list == '') {
+            inputbox_error_notification('asset_assign_list', '');
+        }
+    } else {
+        $.ajax
+                ({
+                    type: "POST",
+                    url: "db/assetassignedto_user.php",
+                    data: '&compo_uid=' + compo_uid + '&user=' + user + '&asset_assign_list=' + asset_assign_list,
+                    datatype: "html",
+                    success: function (result)
                     {
-                        toastr_error();
+                        if (result.trim() == 1)
+                        {
+
+                            modal_hide('asset_assign_user_modal');
+                            toastr_success('Asset Assigned to UserSuccessfully..!', '');
+                        } else
+                        {
+                            toastr_error();
+                        }
                     }
-                }
-            });
+                });
+    }
 });
 function checkinconfirm(id)
 {

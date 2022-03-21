@@ -4,27 +4,36 @@
             <div class="modal-body">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12 ">
-                            <div class="form-group" hidden="" >
+                        <div class="col-12 d-none">
+                            <div class="form-group">
                                 <label>Unique ID<span class="required text-red">*</span></label>
                                 <input type="text" class="form-control" id="compo_uid" name="compo_uid">
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                      <div class="row">
+                        <div class="col-12 ">
+                            <div class="form-group">
+                                <label>Asset Type <span class="required text-red">*</span></label>
+                                <input type="text" class="form-control" id="assettype_frmdb" name="assettype_frmdb">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="assignuser_div">
                         <div class="col-12 ">
                             <div class="form-group">
                                 <label>User <span class="required text-red">*</span></label>
-                                <select class="form-control select2bs4" id="user" name="user">
+                                <select class="form-control select2bs4" id="user" name="user" onchange="input_remove_error_notification('user')">
                                 </select>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" id="assignasset_div">
                         <div class="col-12 ">
                             <div class="form-group">
                                 <label>Asset <span class="required text-red">*</span></label>
-                                <select class="form-control select2bs4" id="asset_assign_list" name="asset_assign_list">
+                                <select class="form-control select2bs4" id="asset_assign_list" name="asset_assign_list" onchange="input_remove_error_notification('asset_assign_list')">
                                 </select>
                             </div>
                         </div>

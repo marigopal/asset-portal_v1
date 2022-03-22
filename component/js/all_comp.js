@@ -1,10 +1,11 @@
 var url_string = window.location.href;
 var url = new URL(url_string);
 var _id = url.searchParams.get("id");
+var sid = url.searchParams.get("sid");
 $.ajax({
     url: "viewlist/all_assets_viewlist.php",
     type: "POST",
-    data: {_id: _id},
+    data: {_id: _id,sid: sid},
     cache: false,
     success: function (data) {
         $('#_index_component_list').html(data);
@@ -15,7 +16,6 @@ $(document).ready(function () {
     load_suppliers('invupd_supplier');
     load_assetcategory('asset_category_select');
     load_assetstatus('statuslist_select');
-
 });
 function delete_row(id)
 {
@@ -96,7 +96,7 @@ $("#save_userbutton").click(function () {
                         {
 
                             modal_hide('asset_assign_user_modal');
-                            toastr_success('Asset Assigned to UserSuccessfully..!', '');
+                            toastr_success('Asset Assigned Successfully..!', '');
                         } else
                         {
                             toastr_error();
@@ -105,25 +105,28 @@ $("#save_userbutton").click(function () {
                 });
     }
 });
-function checkinconfirm(id)
+function checkinconfirm(id, assigned_user, assigned_asset)
 {
     $("#compo_removeuid").val(id);
+    $("#compo_removeuser").val(assigned_user);
+    $("#compo_removeasset").val(assigned_asset);
 }
 $("#confirmcheckinbutton").click(function () {
     var compo_removeuid = $("#compo_removeuid").val();
+    var compo_removeuser = $("#compo_removeuser").val();
+    var compo_removeasset = $("#compo_removeasset").val();
     $.ajax
             ({
                 type: "POST",
                 url: "db/checkinasset.php",
-                data: '&compo_removeuid=' + compo_removeuid,
+                data: '&compo_removeuid=' + compo_removeuid + '&compo_removeuser=' + compo_removeuser + '&compo_removeasset=' + compo_removeasset,
                 datatype: "html",
                 success: function (result)
                 {
                     if (result.trim() == 1)
                     {
-
                         modal_hide('checkinconfirm');
-                        toastr_success('Checkin Successfully..!', '');
+                        toastr_success('Asset Unassigned Successfully..!', '');
                     } else
                     {
                         toastr_error();
@@ -131,7 +134,6 @@ $("#confirmcheckinbutton").click(function () {
                 }
             });
 });
-
 function load_invoicelist(ddlName, selectedvalue)
 {
     var invupd_supplier = $("#invupd_supplier").val();
@@ -178,7 +180,6 @@ $("#saveinvupd_button").click(function () {
                 {
                     if (result.trim() == 1)
                     {
-
                         modal_hide('inv_update_modal');
                         toastr_success('Invoice Updated Successfully..!', '');
                     } else
@@ -195,9 +196,7 @@ $("#asset_category_select").change(function () {
     if (redirect_parm) {
         window.location = redirect_parm;
     }
-
 });
-
 function statuschange_asset(id)
 {
     $("#statuschange_uid").val(id);
@@ -216,7 +215,7 @@ $("#savestatus_asset_btn").click(function () {
                 {
                     if (result.trim() == 1)
                     {
-
+                        modal_hide('asset_statuschange_modal');
                         toastr_success('Status Updated Successfully..!', '');
                     } else
                     {
@@ -226,9 +225,7 @@ $("#savestatus_asset_btn").click(function () {
             });
 
 });
-
 $("#statuslist_select").change(function () {
     var statuschangetext = $("#statuslist_select option:selected").text();
     $("#statuschangetext").val(statuschangetext);
-
 });

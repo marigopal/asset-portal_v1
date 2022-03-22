@@ -30,8 +30,8 @@ if ($isNew === 'true') {
 
     $sql = "INSERT INTO `tbl_component`(`component_uid`, `asset_tag`, `assettag_number`, "
             . "`warranty`, `category`, `manufacturer`, `model`, `model_no`,`serialno`, "
-            . "`remarks`) VALUES ('$uid','$asset_tag','$new_assettag_number','$warranty','$category','$manufacturer',"
-            . "'$model','$asset_modelno','$serial','$remarks')";
+            . "`remarks`, `status_id`) VALUES ('$uid','$asset_tag','$new_assettag_number','$warranty','$category','$manufacturer',"
+            . "'$model','$asset_modelno','$serial','$remarks','STS_6226dd403f9ac')";
 } else if ($isNew === 'false') {
     $sql = "UPDATE `tbl_component` SET `warranty`='$warranty',`category`='$category',"
             . "`manufacturer`='$manufacturer',`model`='$model',`model_no` = '$asset_modelno',`serialno`='$serial',"

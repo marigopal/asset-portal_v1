@@ -19,13 +19,21 @@ include('../include/menu/menu.php');
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>0/1</h3>
+                            <h3>
+                                <?php 
+                            $available_comp = "select count(*) as cntAvailable,status_id from tbl_component WHERE `is_deleted` = '0'";
+                            $result_available = mysqli_query($con, $available_comp);
+                            $row_available = mysqli_fetch_array($result_available);
+                            echo $row_available['cntAvailable'];
+                            
+                            ?>
+                            </h3>
                             <p>Asset</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="../component/all_comp" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-xs-6">

@@ -11,7 +11,7 @@
                             </div>
                         </div>
                     </div>
-                      <div class="row">
+                      <div class="row d-none">
                         <div class="col-12 ">
                             <div class="form-group">
                                 <label>Asset Type <span class="required text-red">*</span></label>
@@ -51,12 +51,24 @@
     <div class="modal-dialog">
         <div class="modal-content bg-danger">
             <div class="modal-body">
-                <p>Are you sure you want to checkin ?</p>
-                <div class="row" hidden="">
+                <p>Are you sure you want to Unassign ?</p>
+                <div class="row d-none">
                     <div class="col-12">
                         <div class="form-group">
                             <label>Unique ID<span class="required text-red">*</span></label>
                             <input type="text" class="form-control" id="compo_removeuid" name="compo_removeuid" placeholder="Unique ID" onkeyup="input_remove_error_notification('compo_removeuid');">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>User<span class="required text-red">*</span></label>
+                            <input type="text" class="form-control" id="compo_removeuser" name="compo_removeuser" placeholder="User" onkeyup="input_remove_error_notification('compo_removeuid');">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Asset<span class="required text-red">*</span></label>
+                            <input type="text" class="form-control" id="compo_removeasset" name="compo_removeasset" placeholder="Assigned Asset" onkeyup="input_remove_error_notification('compo_removeuid');">
                         </div>
                     </div>
                 </div>
@@ -115,7 +127,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row d-none">
                         <div class="col-12 ">
                             <div class="form-group" >
                                 <label>Unique ID<span class="required text-red">*</span></label>

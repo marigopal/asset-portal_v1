@@ -37,6 +37,7 @@ include ("modals/asset_assign_user.php");
                         <div class="card-header">
 
                             <a href="../manage_asset/manage_asset_form"><img src="../img/add_row.png" alt="Smiley face" height="25" width="25" data-toggle="modal" data-target="#new_users" title="New"></a>
+                            <a href="comp_log"><img src="../img/logs.png" alt="Smiley face" height="25" width="25" title="Logs"></a>
 
                         </div>
                         <div class="card-body">

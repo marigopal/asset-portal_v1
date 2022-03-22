@@ -283,3 +283,30 @@ function load_users(ddlName, selectedvalue) {
         }
     });
 }
+function load_assetstatus(ddlName, selectedvalue) {
+    $.ajax({
+        type: "POST",
+        url: "../include/db/load_assetstatuslist.php",
+        data: {},
+        success: function (_result)
+        {
+            var result = JSON.parse(_result.replace('\n', ''));
+            $('#' + ddlName).empty();
+            var select_li_txt = "<option value=''>Select</option>";
+            $('#' + ddlName).append(select_li_txt);
+            if (result != '')
+            {
+                $.each(result, function (i) {
+                    var li_txt = "<option value='" + result[i].status_uid + "'>" + result[i].status_name + "</option>";
+                    $('#' + ddlName).append(li_txt);
+                });
+                if (selectedvalue != null) {
+                    $('#' + ddlName).val(selectedvalue);
+                }
+            } 
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}

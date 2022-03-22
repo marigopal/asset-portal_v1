@@ -8,7 +8,7 @@ if ($user == '') {
     $user = 0;
 }
 $asset_assign_list = $_POST['asset_assign_list'];
-$update_query = "UPDATE `tbl_component` SET `assigned_user`='$user', `status_id`='STS_620be5e16097b', `asset_assign`='$asset_assign_list' WHERE `component_uid` ='$compo_uid'";
+$update_query = "UPDATE `tbl_component` SET `assigned_user`='$user', `status_id`='STS_62397124da3b1', `asset_assign`='$asset_assign_list' WHERE `component_uid` ='$compo_uid'";
 //echo $update_query;
 if ($result = $con->query($update_query)) {
     if ($user != '' && $user != 0) {
